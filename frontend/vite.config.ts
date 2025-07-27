@@ -11,4 +11,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  preview: {
+    host: true,
+    port: 3001,
+    allowedHosts: ['moonlight.nooridev.com'],
+  },
 })
