@@ -7,15 +7,15 @@ services:
       dockerfile: ./docker/Dockerfile
     restart: unless-stopped
     expose:
-      - 3001
+      - 3000
     networks:
       - traefik_default
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio-web.rule=Host(`moonlight.nooridev.com`)"
-      - "traefik.http.routers.portfolio-web.entrypoints=web"
-#      - "traefik.http.routers.portfolio-web.tls.certresolver=letsencrypt"
-      - "traefik.http.services.portfolio-web.loadbalancer.server.port=3001"
+      - "traefik.http.routers.moonlight-web.rule=Host(`moonlight.nooridev.com`)"
+      - "traefik.http.routers.moonlight-web.entrypoints=web"
+#      - "traefik.http.routers.moonlight-web.tls.certresolver=letsencrypt"
+      - "traefik.http.services.moonlight-web.loadbalancer.server.port=3000"
 
 networks:
   traefik_default:
