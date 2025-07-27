@@ -16,3 +16,4 @@ Deeper understanding of moon phases, when it rises and sets and azimuth
 ## What's next for Moonlight Walking
 - Improving the algorithm to calculate a perfect route and mobile first version
 - User interaction: set distance and prefered location
+- Caching the route
