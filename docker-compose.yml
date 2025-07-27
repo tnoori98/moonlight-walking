@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  moonlight-web:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    restart: unless-stopped
+    expose:
+      - 3000
+    networks:
+      - traefik_default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio-web.rule=Host(`moonlight.nooridev.com`)"
+      - "traefik.http.routers.portfolio-web.entrypoints=web"
+#      - "traefik.http.routers.portfolio-web.tls.certresolver=letsencrypt"
+      - "traefik.http.services.portfolio-web.loadbalancer.server.port=3000"
+
+networks:
+  traefik_default:
+    external: true
