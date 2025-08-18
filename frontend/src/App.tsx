@@ -14,7 +14,7 @@ function App() {
   const moon = getMoonInfo(coordinates!.latitude, coordinates!.longitude);
   const moonphase = getMoonPhase(moon.phase);
 
-  const walkStart = new Date(moon.visibilityStart.getTime() + 10 * 60000);
+  const walkStart = new Date(moon.visibilityStart!.getTime() + 10 * 60000);
   const walkEnd = new Date(walkStart.getTime() + 40 * 60000);
 
   return (
@@ -27,8 +27,8 @@ function App() {
           <p>Current Moon Phase: {moon.phase.toFixed(2)}</p>
             <p>Moon Azimuth: {moon.azimuth.toFixed(2)}°</p>
             <p>Moon Altitude: {moon.altitude.toFixed(2)}°</p>
-            <p>Moon Rise: {moon.moonrise.toLocaleTimeString() ?? "-"}</p>
-            <p>Moon Set: {moon.moonset.toLocaleTimeString() ?? "-"}</p>
+            <p>Moon Rise: {moon.moonrise!.toLocaleTimeString() ?? "-"}</p>
+            <p>Moon Set: {moon.moonset!.toLocaleTimeString() ?? "-"}</p>
             <p>Moon Phase: {moonphase.emoji} {moonphase.name}</p>
             {moon.azimuth <= 0 ? <p>The moon is currently not visible</p> : <p>Enjoy your walk in the moon light</p>}
             <p>Recommended Time to walk: {walkStart.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - {walkEnd.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
